@@ -1,0 +1,157 @@
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+\textbf{Ejemplos:}
+
+\hfill
+
+\begin{itemize}
+\item El conjunto de las canciones de los Beatles = $\{x | \text{x es canción y x fue escrita por los Beatles} \}$
+%\item El conjunto de los números primos = $\{ n \in Ν | n \text{ no es divisible por ningún m con } 1<m<n \}$
+%\item El conjunto de los números racionales $\mathbb{Q} = \{ r \in R | \exists  m,n \in Z, r=m/n \}$
+%\item El conjunto de los números irracionales $\mathbb{I} = \{ r \in R | \text{ NO } \exists m,n \in N, r=m/n \}$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+Un \textbf{conjunto vacío} es un conjunto que no tiene elementos, así que todos los conjuntos vacíos
+son iguales, lo denotamos por $\{ \}$ o por $\O$.
+
+\hfill
+
+\textbf{Ejemplos.}
+
+\hfill
+
+\begin{itemize}
+\item El conjunto de todos los perros voladores = $\O$ = El conjunto de los triángulos con 4 lados.
+\item $\O = \{ \} \neq \{\{ \}\} = \{ \O \}$
+\end{itemize}
+
+\hfill
+
+Si A y B son conjuntos, decimos que A esta \textbf{contenido} en B, o que A es \textbf{subconjunto} de B, si
+todos los elementos de A son elementos de B, y escribimos $A \subset B$.
+$$
+A \subset B \ \forall \ x, x \in A \Rightarrow  x \in B
+$$
+
+Por el contrario, cuando A no esta contenido en B escribimos $A \nsubseteq B$
+
+$$
+A \nsubseteq B \ \forall \ \exists \ x, x \in A \notin B
+$$
+
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+\textbf{Ejemplos.}
+
+\hfill
+
+1. Si A = El conjunto de todas las aves 
+
+   B = El conjunto de todos los animales con alas 
+
+   C = El conjunto de todos los animales que vuelan
+
+Entonces $A \subset B , B \nsubseteq A , B \nsubseteq C , C \subset B , A \nsubseteq C , C 
+\nsubseteq A$ .
+
+\hfill
+
+2. Las rectas y planos son conjuntos de puntos. Los puntos son elementos del plano mientras 
+que las rectas son subconjuntos del plano.
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+\textbf{Afirmación.} Si A, B y C son conjuntos y $A \subset B y B \subset C entonces A \subset 
+C$.
+
+\hfill
+
+\textbf{Afirmación.} A = B si y solo si $A \subset B$ y $B \subset A$
+
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+\textbf{Operaciones con conjuntos.}
+
+\hfill
+
+La \textbf{unión} de dos conjuntos A y B es el conjunto $A \cup B$ formado por los elementos de A y 
+los 
+elementos de B, es decir
+$$
+A \cup B = { x | x \in A \& x\in B}
+$$
+
+La \textbf{intersección} de dos conjuntos A y B es el conjunto $A \cap B$ formado por los 
+elementos 
+de A y los 
+elementos de B, es decir
+
+$$
+A \cap B = \{ x | x \in A \ \& \ x \in B \}
+$$
+
+La \textbf{diferencia} entre dos conjuntos A y B es el conjunto A-B formado por los elementos 
+de A que no son elementos de B.
+$$
+A - B = \{ x | x \in A \ y \ x \notin B \}
+$$
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+La unión y la intersección son operaciones entre conjuntos, que tienen propiedades parecidas a la
+suma y la multiplicación de números naturales.
+
+Lema. Si A, B y C son conjuntos entonces se cumplen: 
+
+\begin{enumerate}
+\item $A \cup B = B \cup A$ La unión es conmutativa
+\item $A \cap B = B \cap A$ La intersección es conmutativa
+\item $(A \cup B) \cup C = A \cup (B \cup C) = A \cup B \cup C$ La unión es asociativa
+\item $(A \cup B) \cap C = A \cap (B \cap C) = A \cap B \cap C$ La intersección es asociativa
+\item $A \cap (B \cup C) = (A \cup B) \cap (A \cup C)$ La intersección se distribuye sobre la unión
+\item $A \cup (B \cap C) = (A \cap B) \cup  (A \cap C)$  La unión se distribuye sobre la intersección
+\end{frame}
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+
+\end{frame} 
+
+\begin{frame}{Frame Title}
+    \frametitle{Conjuntos}
+
+
+\end{frame} 
+\end{document}
