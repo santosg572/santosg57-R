@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="sp" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Estadística No Paramétrica y Libre de Distribución &#8212; документација RR 01</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=cb95fe6c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="estadistica-no-parametrica-y-libre-de-distribucion">
+<h1>Estadística No Paramétrica y Libre de Distribución<a class="headerlink" href="#estadistica-no-parametrica-y-libre-de-distribucion" title="Link to this heading">¶</a></h1>
+<p>Este capítulo explora una amplia variedad de técnicas que son útiles cuando se violan los supuestos
+subyacentes de las pruebas de hipótesis tradicionales o se desea realizar una prueba sin hacer suposiciones
+sobre la población muestreada.</p>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">¶</a></h2>
+<p>La mayoría de los procedimientos de inferencia estadística que hemos analizado hasta ahora se clasifican como
+estadística paramétrica. Una excepción es nuestro uso de la chi-cuadrado, como prueba de bondad de ajuste y de
+independencia. Estos usos de la chi-cuadrado se clasifican como estadística no paramétrica.</p>
+<p>La pregunta obvia ahora es: &quot;¿Cuál es la diferencia?&quot;. Para responder, recordemos la naturaleza de los
+procedimientos inferenciales que hemos categorizado como paramétricos. En cada caso, nuestro interés se centró
+en estimar o contrastar una hipótesis sobre uno o más parámetros poblacionales. Además, era fundamental para
+estos procedimientos conocer la forma funcional de la población de la que se extrajeron las muestras que
+sirvieron de base para la inferencia.</p>
+<p>Un ejemplo de prueba estadística paramétrica es la ampliamente utilizada prueba t. Los usos más comunes de
+esta prueba son para contrastar una hipótesis sobre una sola media poblacional o la diferencia entre dos
+medias poblacionales. Uno de los supuestos que sustentan el uso válido de esta prueba es que la población o
+poblaciones muestreadas tienen una distribución al menos aproximadamente normal.</p>
+<p>Como aprenderemos, los procedimientos que analizamos en este capítulo no se refieren a parámetros
+poblacionales o no dependen del conocimiento de la población muestreada. En sentido estricto, solo los
+procedimientos que contrastan hipótesis que no son afirmaciones sobre parámetros poblacionales se clasifican
+como no paramétricos, mientras que aquellos que no hacen suposiciones sobre la población muestreada se
+denominan procedimientos de distribución libre. A pesar de esta distinción, se suele usar los términos no
+paramétrico y de distribución libre indistintamente y analizar los diversos procedimientos de ambos tipos bajo
+el título de estadística no paramétrica. Seguiremos esta convención.</p>
+</section>
+<section id="escalas-de-medicion">
+<h2>Escalas de Medición<a class="headerlink" href="#escalas-de-medicion" title="Link to this heading">¶</a></h2>
+</section>
+<section id="la-prueba-del-signo">
+<h2>La Prueba del Signo<a class="headerlink" href="#la-prueba-del-signo" title="Link to this heading">¶</a></h2>
+<p>La conocida prueba <code class="docutils literal notranslate"><span class="pre">t</span></code> no es estrictamente válida para probar`:</p>
+<ol class="arabic simple">
+<li><p>la hipótesis nula de que la media poblacional es igual a un valor particular, ni</p></li>
+</ol>
+<p>(2) la hipótesis nula de que la media de una población de diferencias entre
+pares de mediciones es igual a cero, a menos que las poblaciones relevantes tengan una distribución al menos
+aproximadamente normal.</p>
+<p>Cuando no se pueden realizar los supuestos de normalidad o cuando los datos
+disponibles son rangos en lugar de mediciones en una escala de intervalos o razones, el investigador puede
+optar por un procedimiento opcional. Aunque se sabe que la prueba <code class="docutils literal notranslate"><span class="pre">t</span></code> es bastante insensible a las
+violaciones
+del supuesto de normalidad, en ocasiones es conveniente una prueba alternativa.</p>
+<p>Una prueba no paramétrica de uso frecuente que no depende de los supuestos de la prueba <code class="docutils literal notranslate"><span class="pre">t</span></code> es la prueba de
+signos. Esta prueba se centra en la <code class="docutils literal notranslate"><span class="pre">mediana</span></code>, en lugar de la <code class="docutils literal notranslate"><span class="pre">media</span></code>, como medida de tendencia central o
+ubicación. La mediana y la media serán iguales en distribuciones simétricas. El único supuesto subyacente a la
+prueba es que la distribución de la variable de interés es continua. Este supuesto descarta el uso de datos
+nominales.</p>
+<p><code class="docutils literal notranslate"><span class="pre">La</span> <span class="pre">prueba</span> <span class="pre">del</span> <span class="pre">signo</span></code> recibe su nombre porque los signos positivos y negativos, en lugar de los valores
+numéricos, proporcionan los datos brutos utilizados en los cálculos. Ilustramos el uso de la prueba del signo,
+primero con una sola muestra y luego con un ejemplo con muestras pareadas.</p>
+<p><strong>Ejemplo 13_3.1</strong></p>
+<p>Los investigadores deseaban saber si la instrucción en cuidado y aseo personal mejoraría la apariencia de
+niñas con discapacidad intelectual. En una escuela para personas con discapacidad intelectual, 10 niñas
+seleccionadas al azar recibieron instrucción especial en cuidado y aseo personal. Dos semanas después de
+completar el curso, una enfermera y un trabajador social entrevistaron a cada una de ellas, quienes les
+asignaron una puntuación basada en su apariencia general. Los investigadores consideraron que las puntuaciones
+alcanzaban el nivel de una escala ordinal. Consideraron que, si bien una puntuación de, por ejemplo, 8
+representaba una mejor apariencia que una de 6, no estaban dispuestos a afirmar que la diferencia entre las
+puntuaciones de 6 y 8 fuera igual a la diferencia entre, por ejemplo, las puntuaciones de 8 y 10; ni que la
+diferencia entre las puntuaciones de 6 y 8 representara el doble de mejora que la diferencia entre las
+puntuaciones de 5 y 6. Las puntuaciones se muestran en la Tabla 13.3.1. Deseamos saber si podemos concluir que
+la puntuación mediana de la población de la que suponemos que se extrajo esta muestra es diferente de 5.</p>
+</section>
+<section id="prueba-del-signo-datos-pareados">
+<h2>Prueba del Signo: datos Pareados<a class="headerlink" href="#prueba-del-signo-datos-pareados" title="Link to this heading">¶</a></h2>
+<p>Cuando los datos a analizar consisten en observaciones en pares coincidentes y no se cumplen los supuestos
+subyacentes a la prueba t, o la escala de medición es débil, se puede emplear la prueba de signos para probar
+la hipótesis nula de que la diferencia mediana es 0. Una forma alternativa de enunciar la hipótesis nula es</p>
+<div class="math notranslate nohighlight">
+\[P(X_i &gt;  Y_i) = P(X_i &lt; Y_i) = .5\]</div>
+<p>Por ejemplo, una de las puntuaciones coincidentes se resta de la otra. Si es menor que el signo de la
+diferencia y si es mayor que el signo de la diferencia. Si la diferencia mediana es 0, esperaríamos que un par
+elegido al azar tuviera la misma probabilidad de producir un valor de como de cuando se realiza la resta.
+Podemos enunciar la hipótesis nula, entonces, como</p>
+<div class="math notranslate nohighlight">
+\[H_0: P(+)  = P(-) = .5\]</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">RR</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигација</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conjuntos_de_numeracion.html">Conjuntos de Numeración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instalacion_ayuda.html">Instalación y Ayuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imagenes_ambiente/ambiente_programacion.html">Ambiente de Programación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../r_comoc_calculadora.html">R como calculadora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vectores_R.html">Vectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones.html">Funciones en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script.html">Script's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../caracter.html">Cadena de caracteres o string's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../estadistica_descriptiva.html">Estadística Descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Regresion_lineal.html">Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones_probabilidad.html">Funciones de Probabilidad</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Leopoldo.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/estadistica_no_parametrica/estadistica_no_parametrica.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

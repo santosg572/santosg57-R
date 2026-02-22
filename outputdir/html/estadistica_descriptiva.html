@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="sp" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Estadística Descriptiva &#8212; документација RR 01</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=cb95fe6c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Индекс" href="genindex.html" />
+    <link rel="search" title="Претрага" href="search.html" />
+    <link rel="next" title="Regresión Lineal" href="Regresion_lineal.html" />
+    <link rel="prev" title="Cadena de caracteres o string&#39;s" href="caracter.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="estadistica-descriptiva">
+<h1>Estadística Descriptiva<a class="headerlink" href="#estadistica-descriptiva" title="Link to this heading">¶</a></h1>
+<p>Consideremos el siguiente conjunto de datos:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">56</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">66</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">53</span><span class="p">,</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">42</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">59</span><span class="p">,</span><span class="w"> </span><span class="m">62</span><span class="p">,</span><span class="w"> </span><span class="m">67</span><span class="p">,</span><span class="w"> </span><span class="m">52</span><span class="p">,</span><span class="m">54</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">63</span><span class="p">,</span><span class="w"> </span><span class="m">63</span><span class="p">,</span><span class="w"> </span><span class="m">63</span><span class="p">,</span><span class="w"> </span><span class="m">58</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="p">,</span><span class="w"> </span><span class="m">57</span><span class="p">,</span><span class="w"> </span><span class="m">61</span><span class="p">,</span><span class="w"> </span><span class="m">54</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">47</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>72, 63, 53, 52, 43, 54, 58, 53, 51, 59, 55, 62, 63, 54,44, 54, 60, 60, 60, 57, 57, 45, 54, 60, 57, 70, 73, 54, 46, 56, 55, 48, 56, 60, 54, 56, 41, 67, 39, 55, 49, 71, 61, 64, 44, 48, 62, 69, 52, 66, 46, 53, 47, 47, 50, 51, 49, 62, 48, 42, 58, 62, 55, 56, 59, 60, 58, 56, 59, 56, 56, 52)</p>
+<p>Calcule o grafique lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Cual es la media de estos datos.</p></li>
+<li><p>Cuantos datos son.</p></li>
+<li><p>Tome muestra de tamaño 10 y calcule la media.</p></li>
+<li><p>Hacer un histograma de <strong>x</strong></p></li>
+<li><p>Hacer un histograma de las medias de 20 muestras de tamaño 10.</p></li>
+</ol>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">RR</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигација</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="conjuntos_de_numeracion.html">Conjuntos de Numeración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instalacion_ayuda.html">Instalación y Ayuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imagenes_ambiente/ambiente_programacion.html">Ambiente de Programación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r_comoc_calculadora.html">R como calculadora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vectores_R.html">Vectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="funciones.html">Funciones en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script.html">Script's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="caracter.html">Cadena de caracteres o string's</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Estadística Descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regresion_lineal.html">Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="funciones_probabilidad.html">Funciones de Probabilidad</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="caracter.html" title="претходна глава">Cadena de caracteres o string's</a></li>
+      <li>Next: <a href="Regresion_lineal.html" title="наредна глава">Regresión Lineal</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Leopoldo.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/estadistica_descriptiva.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
