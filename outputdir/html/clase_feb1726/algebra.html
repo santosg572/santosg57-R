@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="sp" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Algebra Lineal &#8212; документација RR 01</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=cb95fe6c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="index" title="Индекс" href="../genindex.html" />
+    <link rel="search" title="Претрага" href="../search.html" />
+    <link rel="prev" title="Ejercicio String" href="ejemplo_string.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="algebra-lineal">
+<h1>Algebra Lineal<a class="headerlink" href="#algebra-lineal" title="Link to this heading">¶</a></h1>
+<p>Un vector en <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> es definido como:</p>
+<div class="math notranslate nohighlight">
+\[(x_1, x_2, ... , x_n)\]</div>
+<p>es de longitud n y decimos que <span class="math notranslate nohighlight">\(x_1\)</span> es el primer elemento, <span class="math notranslate nohighlight">\(x_2\)</span> es el segundo elemento y <span class="math notranslate nohighlight">\(x_i\)</span> es
+el i-ésimo elemento del vector.</p>
+<p>Sean los vectores <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1, x_2, ... , x_n)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{y}=(y_1, y_2, ... , y_n)\)</span>
+y c un escalar en <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> definimos las siguientes operaciones:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\text{1) } \mathbf{x+y}=(x_1, x_2, ... , x_n)+ (y_1, y_2, ... , y_n)
+= (x_1+y_1, x_2+ y_2, ... , x_n+y_n)\\\text{2) } c\mathbf{x}= (cx_1, cx_2, ... , cx_n)\end{aligned}\end{align} \]</div>
+<p>El <strong>vector transpuesto</strong> de <span class="math notranslate nohighlight">\(\mathbf{x}=(x_1, x_2, ... , x_n)\)</span> esta dado por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x}^T = \begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix}\end{split}\]</div>
+<p>Una <strong>matriz</strong> en <span class="math notranslate nohighlight">\(\mathbb{R}^m \times \mathbb{R}^n\)</span> es definida como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots  &amp; a_{1n}  \\
+a_{21} &amp; a_{22} &amp; \cdots  &amp; a_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{m1} &amp; a_{m2} &amp; \cdots  &amp; a_{mn}  \\
+\end{pmatrix}\end{split}\]</div>
+<p>la magtriz esta formada de m-files y n-columnas.</p>
+<p>Dadas dos matrices <strong>A</strong> y <strong>B</strong>  en <span class="math notranslate nohighlight">\(\mathbb{R}^m \times \mathbb{R}^n\)</span> y c un escalar en <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> se definen las
+operaciones:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A+B} = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots  &amp; a_{1n}  \\
+a_{21} &amp; a_{22} &amp; \cdots  &amp; a_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{m1} &amp; a_{m2} &amp; \cdots  &amp; a_{mn}  \\
+\end{pmatrix} + \begin{pmatrix}
+b_{11} &amp; b_{12} &amp; \cdots  &amp; b_{1n}  \\
+b_{21} &amp; b_{22} &amp; \cdots  &amp; b_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+b_{m1} &amp; b_{m2} &amp; \cdots  &amp; b_{mn}  \\
+\end{pmatrix} = \begin{pmatrix}
+a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; \cdots  &amp; a_{1n}+b_{1n}  \\
+a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; \cdots  &amp; a_{2n}+b_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{m1}+b_{m1} &amp; a_{m2}+b_{m2} &amp; \cdots  &amp; a_{mn}+b_{mn}  \\
+\end{pmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}c \mathbf{A} = a \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots  &amp; a_{1n}  \\
+a_{21} &amp; a_{22} &amp; \cdots  &amp; a_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{m1} &amp; a_{m2} &amp; \cdots  &amp; a_{mn}  \\
+\end{pmatrix} = \begin{pmatrix}
+ca_{11} &amp; ca_{12} &amp; \cdots  &amp; ca_{1n}  \\
+ca_{21} &amp; ca_{22} &amp; \cdots  &amp; ca_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+ca_{m1} &amp; ca_{m2} &amp; \cdots  &amp; ca_{mn}  \\
+\end{pmatrix}\end{split}\]</div>
+<p>La <strong>transpuesta de la matriz</strong> <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> es definida por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A}^T = \begin{pmatrix}
+a_{11} &amp; a_{21} &amp; \cdots  &amp; a_{m1}  \\
+a_{12} &amp; a_{22} &amp; \cdots  &amp; a_{m2}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{1n} &amp; a_{2n} &amp; \cdots  &amp; a_{mn}  \\
+\end{pmatrix}\end{split}\]</div>
+<p>Dadas dos matrices, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times p\)</span> y <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> de tamaño <span class="math notranslate nohighlight">\(p \times n\)</span> se define la multiplicación <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> y <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} \times \mathbf{B} = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots  &amp; a_{1p}  \\
+a_{21} &amp; a_{22} &amp; \cdots  &amp; a_{2p}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+a_{m1} &amp; a_{m2} &amp; \cdots  &amp; a_{mp}  \\
+\end{pmatrix} \begin{pmatrix}
+b_{11} &amp; b_{12} &amp; \cdots  &amp; b_{1n}  \\
+b_{21} &amp; b_{22} &amp; \cdots  &amp; b_{2n}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+b_{p1} &amp; b_{p2} &amp; \cdots  &amp; b_{pn}  \\
+\end{pmatrix} = \begin{pmatrix}
+\sum_{i=1}^p a_{1i}b_{i1} &amp; \sum_{i=1}^p a_{1i}b_{i2} &amp; \cdots  &amp; \sum_{i=1}^p a_{1i}b_{in}  \\
+\sum_{i=1}^p a_{2i}b_{i1} &amp; \sum_{i=1}^p a_{2i}b_{i2} &amp; \cdots  &amp; \sum_{i=1}^p a_{2i}b_{in}  \\
+\cdots &amp; \cdots  &amp; \ddots &amp; \cdots  \\
+\sum_{i=1}^p a_{mi}b_{in} &amp; \sum_{i=1}^p a_{mi}b_{in} &amp; \cdots  &amp; \sum_{i=1}^p a_{mi}b_{in}  \\
+\end{pmatrix}\end{split}\]</div>
+<p><strong>Matriz Identidad</strong></p>
+<p>La matriz identidad de una matriz cuadrada, es decir de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> esta dada por:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}I = \begin{pmatrix}
+1 &amp; 0  &amp; \cdots &amp; 0  \\
+0 &amp; 1  &amp; \cdots &amp; 0  \\
+\vdots &amp; \vdots &amp; \dots &amp; \vdots \\
+0 &amp; 0  &amp; \cdots &amp; 1  \\
+\end{pmatrix}\end{split}\]</div>
+<p>la diagonal son puros 1's</p>
+<p><strong>Matriz Cero</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0 = \begin{pmatrix}
+0 &amp; 0  &amp; \cdots &amp; 0  \\
+0 &amp; 0  &amp; \cdots &amp; 0  \\
+\vdots &amp; \vdots &amp; \dots &amp; \vdots \\
+0 &amp; 0  &amp; \cdots &amp; 0  \\
+\end{pmatrix}\end{split}\]</div>
+<p><strong>Inversa de una Matriz Cuadrada</strong></p>
+<p>Decimos que la matriz <span class="math notranslate nohighlight">\(\textbf{B}\)</span> es inversa de la matriz <span class="math notranslate nohighlight">\(\textbf{A}\)</span> si:</p>
+<div class="math notranslate nohighlight">
+\[A \times B = B \times A = I (\text{matriz identidad})\]</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">RR</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигација</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conjuntos_de_numeracion.html">Conjuntos de Numeración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../instalacion_ayuda.html">Instalación y Ayuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../imagenes_ambiente/ambiente_programacion.html">Ambiente de Programación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../r_comoc_calculadora.html">R como calculadora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vectores_R.html">Vectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones.html">Funciones en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../script.html">Script's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../caracter.html">Cadena de caracteres o string's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../estadistica_descriptiva.html">Estadística Descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Regresion_lineal.html">Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funciones_probabilidad.html">Funciones de Probabilidad</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ejercicios_series.html">Ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Estructuras_Control.html">Estructuras de Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo_string.html">Ejercicio String</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algebra Lineal</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ejemplo_string.html" title="претходна глава">Ejercicio String</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Leopoldo.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/clase_feb1726/algebra.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
