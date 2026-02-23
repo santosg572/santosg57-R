@@ -1,0 +1,15 @@
+Supongamos ahora que además de estar numeradas del 1 al s
+las primeras r bolas están coloreadas de rojo y las 
+s-r restantes están coloreadas de negro.
+
+Realizamos el experimento como antes, pero ahora sólo 
+nos interesa el color de la bola extraída y no su número.
+
+Un momento de reflexión muestra que la frecuencia relativa 
+de bolas rojas extraídas entre n repeticiones del experimento 
+es simplemente la suma de las frecuencias relativas Nn(k)/n 
+sobre aquellos valores de k que corresponden a una bola roja.
+
+Dado que para n grande se espera que las frecuencias relativas 
+Nn(k)/n sean cercanas a pk = 1/s, anticiparíamos que la 
+frecuencia relativa de las bolas rojas sería cercana a r/s.

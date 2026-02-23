@@ -1,0 +1,12 @@
+Ahora crearemos un modelo matemático del experimento 
+de extraer una bola de la caja. Para ello, 
+primero tomamos un conjunto OMEGA con s puntos 
+que establecemos en correspondencia biunívoca 
+con los posibles resultados del experimento.
+
+En esta correspondencia, exactamente un punto de OMEGA 
+estará asociado con el resultado de que se seleccione 
+la bola etiquetada como k. Llamemos a ese punto wk.
+
+Observamos inmediatamente que 0 <= pk <= 1 y que p1 + ... + ps = 1
+

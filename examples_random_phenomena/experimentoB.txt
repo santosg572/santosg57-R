@@ -1,0 +1,12 @@
+Realizamos el experimento como antes, pero ahora sólo 
+nos interesa el color de la bola extraída y no su número.
+
+Un momento de reflexión muestra que la frecuencia relativa 
+de bolas rojas extraídas entre n repeticiones del experimento 
+es simplemente la suma de las frecuencias relativas Nn(k)/n 
+sobre aquellos valores de k que corresponden a una bola roja.
+
+Entoces la frecuencia relativa es r/s la cual llamaremos 
+la probabilidad de obtener una bola roja.
+
+

@@ -1,0 +1,15 @@
+Las frecuencias relativas (es decir, la proporción de veces) 
+de los resultados 1, 2 y 3 son entonces
+
+N20(1)/20 = .25,   N20(2)/20 = .40,    y    N20(3)/20 = .35
+
+A medida que el número de ensayos aumenta, esperaríamos que 
+las frecuencias relativas Nn(1), ..., Nn(s)/n se establecieran 
+en algunos números fijos p1, p2, ..., ps 
+(que según nuestra intuición en este caso deberían ser todos 1/s)
+
+por la interpretación de frecuencia relativa, 
+el número pi se llamaría la probabilidad de que 
+se extraiga la i-ésima bola cuando el experimento 
+se realiza una vez (i=1,2,...,s)
+
