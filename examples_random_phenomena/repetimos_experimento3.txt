@@ -8,5 +8,7 @@ En esta correspondencia, exactamente un punto de OMEGA
 estará asociado con el resultado de que se seleccione 
 la bola etiquetada como k. Llamemos a ese punto wk.
 
-Observamos inmediatamente que 0 <= pk <= 1 y que p1 + ... + ps = 1
+Observamos inmediatamente que 
+
+0 <= pk <= 1 y que p1 + ... + ps = 1
 

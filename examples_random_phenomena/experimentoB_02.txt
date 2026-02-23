@@ -1,0 +1,12 @@
+Sean A y B dos eventos. El evento A ocurre si el experimento 
+produce un resultado representado por algún punto en A.
+De la misma manera se dice para el evento B.
+
+El conjunto A UNION B representa el hecho de que ocurre 
+el evento A o ocurre el evento B,
+
+El conjunto A INTERSECCION B representa el evento que ocurra
+en evento A y ocurre el evento B.
+
+El complemento de A es el evento que que no ocurra el evento A.
+

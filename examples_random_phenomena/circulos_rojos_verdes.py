@@ -68,6 +68,9 @@ def on_draw():
       x0 = x0 + dx
     Label(x0, y0, '...')
     Circulo(x0+dx, y0, 's', coli, 16)
+    color_buffer = pyglet.image.get_buffer_manager().get_color_buffer()
+        # Save to file
+    color_buffer.save('circulos_rojos_verdes.png')
 
 
 

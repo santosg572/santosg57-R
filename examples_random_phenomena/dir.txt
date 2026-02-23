@@ -1,0 +1,5 @@
+bolas_fila.png
+experimento_00.png
+experimento_01.png
+experimento_02.png
+experimento_03.png

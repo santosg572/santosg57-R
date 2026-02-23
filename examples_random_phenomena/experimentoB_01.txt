@@ -1,0 +1,14 @@
+Veamos cómo podemos reflejar este hecho en nuestro modelo. 
+
+Sea A el subconjunto de OMEGA formado por los puntos wk 
+tales que la bola k es roja. 
+Entonces, A tiene exactamente r puntos. 
+
+Llamamos a A un evento. 
+
+De forma más general, en esta situación, 
+llamaremos evento a cualquier subconjunto B de OMEGA. 
+
+Decir que el evento B ocurre significa que el resultado 
+del experimento está representado por algún punto en B.
+
