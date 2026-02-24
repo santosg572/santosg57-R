@@ -1,0 +1,10 @@
+Graficación
+================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   graphics.rst
+   plot.rst
+
