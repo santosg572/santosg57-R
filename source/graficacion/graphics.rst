@@ -44,99 +44,48 @@ Imports:            grDevices
 * **grconvertX**              Convertir entre sistemas de coordenadas gráficas
 * **grid**                    Agregar cuadrícula a un gráfico
 * **hist**                    Histogramas
-
-
-hist.POSIXt             Histograma de un objeto de fecha o fecha-hora
-
-identify                Identificar puntos en un diagrama de dispersión
-
-image                   Mostrar una imagen en color
-
-layout                  Especificación de disposiciones de tramas complejas
-
-legend                  Añadir leyendas a las tramas
-
-lines                   Agregar segmentos de línea conectados a un gráfico
-
-
-locator                 Entrada gráfica
-
-matplot                 Trazar columnas de matrices
-
-mosaicplot              Gráficos de mosaico
-
-mtext                   Escribir texto en los márgenes de una trama
-
-pairs                   Matrices de diagrama de dispersión
-
-panel.smooth            Gráfico de panel simple
-
-par                     Establecer o consultar parámetros gráficos
-
-
-persp                   Gráficos de perspectiva
-
-pie                     Gráficos circulares
-
-plot.data.frame         Método de trazado para marcos de datos
-
-plot.default            La función de diagrama de dispersión predeterminada
-
-plot.design             Graficar efectos univariados de un diseño o modelo
-
-plot.factor             Trazado de variables factoriales
-
-plot.formula            Notación de fórmulas para diagramas de dispersión
-
-plot.histogram          Histogramas de gráficos
-
-plot.raster             Trazado de imágenes raster
-
-plot.table              Métodos de trazado para objetos 'table'
-
-plot.window             Configurar coordenadas mundiales para la ventana de gráficos
-
-plot.xy                 Función básica de trama interna
-
-points                  Agregar puntos a un gráfico
-
-polygon                 Dibujo de polígonos
-
-polypath                Dibujo de ruta
-
-rasterImage             Dibujar una o más imágenes rasterizadas
-
-
-rect                    Dibuja uno o más rectángulos
-
-rug                     Añadir una alfombra a una parcela
-
-screen                  Creación y control de múltiples pantallas en un solo dispositivo
-
-segments                Agregar segmentos de línea a un gráfico
-
-smoothScatter           Diagramas de dispersión con representación de color de densidades suavizadas
-
-
-spineplot               Diagramas de columna y espinogramas
-
-stars                   Diagramas de estrellas (araña/radar) y diagramas de segmentos
-
-stem                    Diagramas de tallo y hojas
-
-stripchart              Diagramas de dispersión 1-D
-
-strwidth                Trazado de dimensiones de cadenas de caracteres y expresiones matemáticas
-
-sunflowerplot           Producir un diagrama de dispersión de girasol
-
-symbols                 Dibujar símbolos (círculos, cuadrados, estrellas, termómetros, diagramas de caja)
-
-text                    Agregar texto a un gráfico
-
-title                   Anotación de la trama
-
-
-xinch                   Unidades gráficas
-
-xspline                 Dibujar una X-spline
+* **hist.POSIXt**             Histograma de un objeto de fecha o fecha-hora
+* **identify**                Identificar puntos en un diagrama de dispersión
+* **image**                   Mostrar una imagen en color
+* **layout**                  Especificación de disposiciones de tramas complejas
+* **legend**                  Añadir leyendas a las tramas
+* **lines**                   Agregar segmentos de línea conectados a un gráfico
+* **locator**                 Entrada gráfica
+* **matplot**                 Trazar columnas de matrices
+* **mosaicplot**              Gráficos de mosaico
+* **mtext**                   Escribir texto en los márgenes de una trama
+* **pairs**                   Matrices de diagrama de dispersión
+* **panel.smooth**            Gráfico de panel simple
+* **par**                     Establecer o consultar parámetros gráficos
+* **persp**                   Gráficos de perspectiva
+* **pie**                     Gráficos circulares
+* **plot.data.frame**         Método de trazado para marcos de datos
+* **plot.default**            La función de diagrama de dispersión predeterminada
+* **plot.design**             Graficar efectos univariados de un diseño o modelo
+* **plot.factor**             Trazado de variables factoriales
+* **plot.formula**            Notación de fórmulas para diagramas de dispersión
+* **plot.histogram**          Histogramas de gráficos
+* **plot.raster**             Trazado de imágenes raster
+* **plot.table**              Métodos de trazado para objetos 'table'
+* **plot.window**             Configurar coordenadas mundiales para la ventana de gráficos
+* **plot.xy**                 Función básica de trama interna
+* **points**                  Agregar puntos a un gráfico
+* **polygon**                 Dibujo de polígonos
+* **polypath**                Dibujo de ruta
+* **rasterImage**             Dibujar una o más imágenes rasterizadas
+* **rect**                    Dibuja uno o más rectángulos
+* **rug**                     Añadir una alfombra a una parcela
+* **screen**                  Creación y control de múltiples pantallas en un solo dispositivo
+* **segments**                Agregar segmentos de línea a un gráfico
+* **smoothScatter**           Diagramas de dispersión con representación de color de densidades suavizadas
+* **spineplot**               Diagramas de columna y espinogramas
+* **stars**                   Diagramas de estrellas (araña/radar) y diagramas de segmentos
+* **stem**                    Diagramas de tallo y hojas
+* **stripchart**              Diagramas de dispersión 1-D
+* **strwidth**                Trazado de dimensiones de cadenas de caracteres y expresiones matemáticas
+* **sunflowerplot**           Producir un diagrama de dispersión de girasol
+* **symbols**                 Dibujar símbolos (círculos, cuadrados, estrellas, termómetros, diagramas de caja)
+* **text**                    Agregar texto a un gráfico
+* **title**                   Anotación de la trama
+* **xinch**                   Unidades gráficas
+* **xspline**                 Dibujar una X-spline
