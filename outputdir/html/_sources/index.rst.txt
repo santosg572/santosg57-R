@@ -56,4 +56,7 @@ Clase: 19 de febrero de 2026
    listas_dadaframes/listas-dataframe
    Imagenes/imagenes
    graficacion/graf
+   base
+   utils
 
+  

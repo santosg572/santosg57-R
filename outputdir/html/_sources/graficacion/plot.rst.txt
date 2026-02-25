@@ -59,10 +59,18 @@ a title for the y axis: see title.
 
 **Examples**
 
+1.
+
 .. code:: R
 
    plot(cars)
    lines(lowess(cars))
+
+2.
+
+.. code:: R
+
+   plot(sin, -pi, 2*pi)
 
 
 
