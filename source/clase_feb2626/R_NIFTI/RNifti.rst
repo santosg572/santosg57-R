@@ -57,6 +57,9 @@ Para el archivo: sub-01_task-restaurative_bold.nii.gz responder lo siguiente:
 
 2. Cuantos volúmenes tiene el archivo.
 
-3. Tomar un 
+3. Tomar un punto fijo P0(i0, j0, k0) dentro del cerebro y tomar la señal de este punto. Hacer un histograma de las 
+correlaciones de todas las señales a P0 dentro de una vecindad de P0.
+
+ 
 
 

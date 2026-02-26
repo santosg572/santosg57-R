@@ -41,26 +41,22 @@ are plotted, centered at the coordinates.</p>
 <p>## Default S3 method:</p>
 <p>points(x, y = NULL, type = &quot;p&quot;, ...)</p>
 <p><strong>Arguments</strong></p>
-<p>x, y - coordinate vectors of points to plot.</p>
-<p>type - character indicating the type of plotting; actually any of the types as in plot.default.</p>
+<p><strong>x, y</strong> - coordinate vectors of points to plot.</p>
+<p><strong>type</strong> - character indicating the type of plotting; actually any of the types as in plot.default.</p>
 <p>... - Further graphical parameters may also be supplied as arguments. See ‘Details’.</p>
 <p><strong>Graphical parameters commonly used are</strong></p>
 <ul class="simple">
-<li><p>pch - plotting ‘character’, i.e., symbol to use. This can either be a single character or an integer code for one</p></li>
+<li><p><strong>pch</strong> - plotting ‘character’, i.e., symbol to use. This can either be a single character or an integer code for one</p></li>
 </ul>
-<p>of a
-set of graphics symbols. The full set of S symbols is available with pch = 0:18, see the examples below. (NB: R
-uses circles instead of the octagons used in S.)</p>
+<p>of a set of graphics symbols.</p>
 <p>Value pch = &quot;.&quot; (equivalently pch = 46) is handled specially. It is a rectangle of side 0.01 inch (scaled by cex).
 In addition, if cex = 1 (the default), each side is at least one pixel (1/72 inch on the pdf, postscript and xfig
 devices).</p>
-<p>For other text symbols, cex = 1 corresponds to the default fontsize of the device, often specified by an argument
-pointsize. For pch in 0:25 the default size is about 75% of the character height (see par(&quot;cin&quot;)).</p>
 <ul class="simple">
-<li><p>col - color code or name, see par.</p></li>
-<li><p>bg - background (fill) color for the open plot symbols given by pch = 21:25.</p></li>
-<li><p>cex - character (or symbol) expansion: a numerical vector. This works as a multiple of par(&quot;cex&quot;).</p></li>
-<li><p>lwd - line width for drawing symbols see par.</p></li>
+<li><p><strong>col</strong> - color code or name, see par.</p></li>
+<li><p><strong>bg</strong> - background (fill) color for the open plot symbols given by pch = 21:25.</p></li>
+<li><p><strong>cex</strong> - character (or symbol) expansion: a numerical vector. This works as a multiple of par(&quot;cex&quot;).</p></li>
+<li><p><strong>lwd</strong> - line width for drawing symbols see par.</p></li>
 </ul>
 <p><strong>Examples</strong></p>
 <ol class="arabic simple">

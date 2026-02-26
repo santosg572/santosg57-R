@@ -8,4 +8,5 @@ Graficación
    graphics
    plot
    points
+   symbols
 

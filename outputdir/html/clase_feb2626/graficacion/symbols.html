@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="sp" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>symbols &#8212; документација RR 01</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../_static/documentation_options.js?v=cb95fe6c"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Индекс" href="../../genindex.html" />
+    <link rel="search" title="Претрага" href="../../search.html" />
+    <link rel="prev" title="points {graphics}" href="points.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="symbols">
+<h1>symbols<a class="headerlink" href="#symbols" title="Link to this heading">¶</a></h1>
+<p>Draw Symbols (Circles, Squares, Stars, Thermometers, Boxplots)</p>
+<p>Description:</p>
+<blockquote>
+<div><p>This function draws symbols on a plot.  One of six symbols;
+_circles_, _squares_, _rectangles_, _stars_, _thermometers_, and
+_boxplots_, can be plotted at a specified set of x and y
+coordinates.  Specific aspects of the symbols, such as relative
+size, can be customized by additional parameters.</p>
+</div></blockquote>
+<p>Usage:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>symbols(x, y = NULL, circles, squares, rectangles, stars,</dt><dd><p>thermometers, boxplots, inches = TRUE, add = FALSE,
+fg = par(&quot;col&quot;), bg = NA,
+xlab = NULL, ylab = NULL, main = NULL,
+xlim = NULL, ylim = NULL, ...)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Arguments:</p>
+<blockquote>
+<div><blockquote>
+<div><dl class="simple">
+<dt>x, y: the x and y co-ordinates for the centres of the symbols.</dt><dd><p>They can be specified in any way which is accepted by
+‘xy.coords’.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>circles: a vector giving the radii of the circles.</p>
+<p>squares: a vector giving the length of the sides of the squares.</p>
+</div></blockquote>
+<dl>
+<dt>rectangles: a matrix with two columns.  The first column gives widths</dt><dd><blockquote>
+<div><p>and the second the heights of rectangles.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>stars: a matrix with three or more columns giving the lengths of the</dt><dd><p>rays from the center of the stars.  ‘NA’ values are replaced
+by zeroes.</p>
+</dd>
+</dl>
+</dd>
+<dt>thermometers: a matrix with three or four columns.  The first two</dt><dd><p>columns give the width and height of the thermometer symbols.
+If there are three columns, the third is taken as a
+proportion: the thermometers are filled (using colour ‘fg’)
+from their base to this proportion of their height.  If there
+are four columns, the third and fourth columns are taken as
+proportions and the thermometers are filled between these two
+proportions of their heights.  The part of the box not filled
+in ‘fg’ will be filled in the background colour (default
+transparent) given by ‘bg’.</p>
+</dd>
+<dt>boxplots: a matrix with five columns.  The first two columns give the</dt><dd><blockquote>
+<div><p>width and height of the boxes, the next two columns give the
+lengths of the lower and upper whiskers and the fifth the
+proportion (with a warning if not in [0,1]) of the way up the
+box that the median line is drawn.</p>
+</div></blockquote>
+<p>inches: ‘TRUE’, ‘FALSE’ or a positive number.  See ‘Details’.</p>
+<blockquote>
+<div><blockquote>
+<div><dl>
+<dt>add: if ‘add’ is ‘TRUE’, the symbols are added to an existing</dt><dd><blockquote>
+<div><p>plot, otherwise a new plot is created.</p>
+</div></blockquote>
+<p>fg: colour(s) the symbols are to be drawn in.</p>
+<dl class="simple">
+<dt>bg: if specified, the symbols are filled with colour(s), the</dt><dd><p>vector ‘bg’ being recycled to the number of symbols.  The
+default is to leave the symbols unfilled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>xlab: the x label of the plot if ‘add’ is not true.  Defaults to</dt><dd><p>the ‘deparse’d expression used for ‘x’.</p>
+</dd>
+</dl>
+<p>ylab: the y label of the plot.  Unused if ‘add = TRUE’.</p>
+<p>main: a main title for the plot.  Unused if ‘add = TRUE’.</p>
+<dl>
+<dt>xlim: numeric vector of length 2 giving the x limits for the plot.</dt><dd><p>Unused if ‘add = TRUE’.</p>
+</dd>
+<dt>ylim: numeric vector of length 2 giving the y limits for the plot.</dt><dd><blockquote>
+<div><p>Unused if ‘add = TRUE’.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>...: graphics parameters can also be passed to this function, as</dt><dd><p>can the plot aspect ratio ‘asp’ (see ‘plot.window’).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+<p>Details:</p>
+<blockquote>
+<div><p>Observations which have missing coordinates or missing size
+parameters are not plotted.  The exception to this is _stars_.  In
+that case, the length of any ray which is ‘NA’ is reset to zero.</p>
+<p>Argument ‘inches’ controls the sizes of the symbols.  If ‘TRUE’
+(the default), the symbols are scaled so that the largest
+dimension of any symbol is one inch.  If a positive number is
+given the symbols are scaled to make largest dimension this size
+in inches (so ‘TRUE’ and ‘1’ are equivalent).  If ‘inches’ is
+‘FALSE’, the units are taken to be those of the appropriate axes.
+(For circles, squares and stars the units of the x axis are used.
+For boxplots, the lengths of the whiskers are regarded as
+dimensions alongside width and height when scaling by ‘inches’,
+and are otherwise interpreted in the units of the y axis.)</p>
+<p>Circles of radius zero are plotted at radius one pixel (which is
+device-dependent).  Circles of a very small non-zero radius may or
+may not be visible, and may be smaller than circles of radius
+zero.  On ‘windows’ devices circles are plotted at radius at least
+one pixel as some Windows versions omit smaller circles.</p>
+</div></blockquote>
+<p>References:</p>
+<blockquote>
+<div><p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+<a href="#id3"><span class="problematic" id="id4">Language_</span></a>.  Wadsworth &amp; Brooks/Cole.</p>
+<p>W. S. Cleveland (1985) _The Elements of Graphing Data._ Monterey,
+California: Wadsworth.</p>
+<p>Murrell, P. (2005) _R <a href="#id5"><span class="problematic" id="id6">Graphics_</span></a>. Chapman &amp; Hall/CRC Press.</p>
+</div></blockquote>
+<p>See Also:</p>
+<blockquote>
+<div><p>‘stars’ for drawing _stars_ with a bit more flexibility.</p>
+<p>If you are thinking about doing ‘bubble plots’ by ‘symbols(<em>,
+circles=</em>)’, you should _really_ consider using ‘sunflowerplot’
+instead.</p>
+</div></blockquote>
+<p>Examples:</p>
+<blockquote>
+<div><p>require(stats); require(grDevices)
+x &lt;- 1:10
+y &lt;- sort(10*runif(10))
+z &lt;- runif(10)
+z3 &lt;- cbind(z, 2*runif(10), runif(10))
+symbols(x, y, thermometers = cbind(.5, 1, z), inches = .5, fg = 1:10)
+symbols(x, y, thermometers = z3, inches = FALSE)
+text(x, y, apply(format(round(z3, digits = 2)), 1, paste, collapse = &quot;,&quot;),</p>
+<blockquote>
+<div><p>adj = c(-.2,0), cex = .75, col = &quot;purple&quot;, xpd = NA)</p>
+</div></blockquote>
+<p>## Note that  example(trees)  shows more sensible plots!
+N &lt;- nrow(trees)
+with(trees, {
+## Girth is diameter in inches
+symbols(Height, Volume, circles = Girth/24, inches = FALSE,</p>
+<blockquote>
+<div><p>main = &quot;Trees' Girth&quot;) # xlab and ylab automatically</p>
+</div></blockquote>
+<p>## Colours too:
+op &lt;- palette(rainbow(N, end = 0.9))
+symbols(Height, Volume, circles = Girth/16, inches = FALSE, bg = 1:N,</p>
+<blockquote>
+<div><p>fg = &quot;gray30&quot;, main = &quot;symbols(<a href="#id1"><span class="problematic" id="id2">*</span></a>, circles = Girth/16, bg = 1:N)&quot;)</p>
+</div></blockquote>
+<p>palette(op)
+})</p>
+</div></blockquote>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">RR</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигација</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../conjuntos_de_numeracion.html">Conjuntos de Numeración</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../instalacion_ayuda.html">Instalación y Ayuda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../imagenes_ambiente/ambiente_programacion.html">Ambiente de Programación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../r_comoc_calculadora.html">R como calculadora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vectores_R.html">Vectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../funciones.html">Funciones en R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../script.html">Script's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../caracter.html">Cadena de caracteres o string's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../estadistica_descriptiva.html">Estadística Descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Regresion_lineal.html">Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../funciones_probabilidad.html">Funciones de Probabilidad</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../clase_feb1726/ejercicios_series.html">Ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clase_feb1726/funciones_rep_sample.html">Funciones <strong>rep</strong> y <strong>sample</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clase_feb1726/Estructuras_Control.html">Estructuras de Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clase_feb1726/ejemplo_string.html">Ejercicio String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clase_feb1726/algebra.html">Algebra Lineal</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Ejercicios/ejercicios_feb1927.html">Ejercicios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../listas_dadaframes/listas-dataframe.html">Listas y DataFrame's</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Imagenes/imagenes.html">Análisis de Imágenes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../clase-feb2626.html">Clase-feb2626</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../R_NIFTI/RNifti.html">nifti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DANIEL/BIOSTATISTICS.html">Estadística</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="graf.html">Graficación</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../clase-feb2626.html">Clase-feb2626</a><ul>
+  <li><a href="graf.html">Graficación</a><ul>
+      <li>Previous: <a href="points.html" title="претходна глава">points {graphics}</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Брза претрага</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Тражи" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Leopoldo.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/clase_feb2626/graficacion/symbols.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
