@@ -92,8 +92,8 @@ xlim, ylim: the range of x and y values with sensible defaults.  Note
           that ‘xlim’ is _not_ used to define the histogram (breaks),
           but only for plotting (when ‘plot = TRUE’).
 
-    axes: logical.  If ‘TRUE’ (default), axes are drawn when the plot
-          is.
+    axes: logical.  If ‘TRUE’ (default), axes are draw if the plot is
+          drawn.
 
     plot: logical.  If ‘TRUE’ (default), a histogram is plotted,
           otherwise a list of breaks and counts is returned.  In the
@@ -118,13 +118,13 @@ warn.unused: logical.  If ‘plot = FALSE’ and ‘warn.unused = TRUE’, a
 _D_e_t_a_i_l_s:
 
      The definition of _histogram_ differs by source (with
-     country-specific biases).  R's default with equispaced breaks
+     country-specific biases).  R's default with equi-spaced breaks
      (also the default) is to plot the counts in the cells defined by
      ‘breaks’.  Thus the height of a rectangle is proportional to the
      number of points falling into the cell, as is the area _provided_
      the breaks are equally-spaced.
 
-     The default with non-equispaced breaks is to give a plot of area
+     The default with non-equi-spaced breaks is to give a plot of area
      one, in which the _area_ of the rectangles is the fraction of the
      data points falling in the cells.
 

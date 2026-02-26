@@ -7,6 +7,7 @@ Clase-feb2626
 
    R_NIFTI/RNifti
    DANIEL/BIOSTATISTICS
+   graficacion/graf
 
 
 
