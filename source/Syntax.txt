@@ -1,0 +1,82 @@
+Syntax                  package:base                   R Documentation
+
+_O_p_e_r_a_t_o_r _S_y_n_t_a_x _a_n_d _P_r_e_c_e_d_e_n_c_e
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Outlines R syntax and gives the precedence of operators.
+
+_D_e_t_a_i_l_s:
+
+     The following unary and binary operators are defined.  They are
+     listed in precedence groups, from highest to lowest.
+
+       ‘:: :::’           access variables in a namespace              
+       ‘$ @’              component / slot extraction                  
+       ‘[ [[’             indexing                                     
+       ‘^’                exponentiation (right to left)               
+       ‘- +’              unary minus and plus                         
+       ‘:’                sequence operator                            
+       ‘%any% |>’         special operators (including ‘%%’ and ‘%/%’) 
+       ‘* /’              multiply, divide                             
+       ‘+ -’              (binary) add, subtract                       
+       ‘< > <= >= == !=’  ordering and comparison                      
+       ‘!’                negation                                     
+       ‘&  &&’            and                                          
+       ‘| ||’             or                                           
+       ‘~’                as in formulae                               
+       ‘-> ->>’           rightwards assignment                        
+       ‘<- <<-’           assignment (right to left)                   
+       ‘=’                assignment (right to left)                   
+       ‘?’                help (unary and binary)                      
+      
+     Within an expression operators of equal precedence are evaluated
+     from left to right except where indicated.  (Note that ‘=’ is not
+     necessarily an operator.)
+
+     The binary operators ‘::’, ‘:::’, ‘$’ and ‘@’ require names or
+     string constants on the right hand side, and the first two also
+     require them on the left.
+
+     The links in the *See Also* section cover most other aspects of
+     the basic syntax.
+
+_N_o_t_e:
+
+     There are substantial precedence differences between R and S.  In
+     particular, in S ‘?’ has the same precedence as (binary) ‘+ -’ and
+     ‘& && | ||’ have equal precedence.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+_S_e_e _A_l_s_o:
+
+     ‘Arithmetic’, ‘Comparison’, ‘Control’, ‘Extract’, ‘Logic’,
+     ‘NumericConstants’, ‘Paren’, ‘Quotes’, ‘Reserved’.
+
+     The ‘R Language Definition’ manual.
+
+_E_x_a_m_p_l_e_s:
+
+     ## Logical AND ("&&") has higher precedence than OR ("||"):
+     TRUE || TRUE && FALSE   # is the same as
+     TRUE || (TRUE && FALSE) # and different from
+     (TRUE || TRUE) && FALSE
+     
+     ## Special operators have higher precedence than "!" (logical NOT).
+     ## You can use this for %in% :
+     ! 1:10 %in% c(2, 3, 5, 7) # same as !(1:10 %in% c(2, 3, 5, 7))
+     ## but we strongly advise to use the "!( ... )" form in this case!
+     
+     
+     ## '=' has lower precedence than '<-' ... so you should not mix them
+     ##     (and '<-' is considered better style anyway):
+     ## Not run:
+     ## Consequently, this gives a ("non-catchable") error
+      x <- y = 5  #->  Error in (x <- y) = 5 : ....
+     ## End(Not run)
+     
+

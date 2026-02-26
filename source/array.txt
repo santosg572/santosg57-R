@@ -1,0 +1,110 @@
+array                   package:base                   R Documentation
+
+Multi-way Arrays
+
+Description:
+
+     Creates or tests for arrays.
+
+Usage:
+
+     array(data = NA, dim = length(data), dimnames = NULL)
+     as.array(x, ...)
+     is.array(x)
+     
+Arguments:
+
+    data: a vector (including a list or ‘expression’ vector) giving
+          data to fill the array.  Non-atomic classed objects are
+          coerced by ‘as.vector’.
+
+     dim: the dim attribute for the array to be created, that is an
+          integer vector of length one or more giving the maximal
+          indices in each dimension.
+
+dimnames: either ‘NULL’ or the names for the dimensions.  This must be
+          a list (or it will be ignored) with one component for each
+          dimension, either ‘NULL’ or a character vector of the length
+          given by ‘dim’ for that dimension.  The list can be named,
+          and the list names will be used as names for the dimensions.
+          If the list is shorter than the number of dimensions, it is
+          extended by ‘NULL’s to the length required.
+
+       x: an R object.
+
+     ...: additional arguments to be passed to or from methods.
+
+Details:
+
+     An array in R can have one, two or more dimensions.  It is simply
+     a vector which is stored with additional attributes giving the
+     dimensions (attribute ‘"dim"’) and optionally names for those
+     dimensions (attribute ‘"dimnames"’).
+
+     A two-dimensional array is the same thing as a ‘matrix’.
+
+     One-dimensional arrays often look like vectors, but may be handled
+     differently by some functions: ‘str’ does distinguish them in
+     recent versions of R.
+
+     The ‘"dim"’ attribute is an integer vector of length one or more
+     containing non-negative values: the product of the values must
+     match the length of the array.
+
+     The ‘"dimnames"’ attribute is optional: if present it is a list
+     with one component for each dimension, either ‘NULL’ or a
+     character vector of the length given by the element of the ‘"dim"’
+     attribute for that dimension.
+
+     ‘is.array’ is a primitive function.
+
+     For a list array, the ‘print’ method prints entries of length not
+     one in the form ‘integer,7’ indicating the type and length.
+
+Value:
+
+     ‘array’ returns an array with the extents specified in ‘dim’ and
+     naming information in ‘dimnames’.  The values in ‘data’ are taken
+     to be those in the array with the leftmost subscript moving
+     fastest.  If there are too few elements in ‘data’ to fill the
+     array, then the elements in ‘data’ are recycled.  If ‘data’ has
+     length zero, ‘NA’ of an appropriate type is used for atomic
+     vectors (‘0’ for raw vectors) and ‘NULL’ for lists.
+
+     Unlike ‘matrix’, ‘array’ does not currently remove any attributes
+     left by ‘as.vector’ from a classed list ‘data’, so can return a
+     list array with a class attribute.
+
+     ‘as.array’ is a generic function for coercing to arrays.  The
+     default method does so by attaching a ‘dim’ attribute to it.  It
+     also attaches ‘dimnames’ if ‘x’ has ‘names’.  The sole purpose of
+     this is to make it possible to access the ‘dim[names]’ attribute
+     at a later time.
+
+     ‘is.array’ returns ‘TRUE’ or ‘FALSE’ depending on whether its
+     argument is an array (i.e., has a ‘dim’ attribute of positive
+     length) or not.  It is generic: you can write methods to handle
+     specific classes of objects, see InternalMethods.
+
+_N_o_t_e:
+
+     ‘is.array’ is a primitive function.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+_S_e_e _A_l_s_o:
+
+     ‘aperm’, ‘matrix’, ‘dim’, ‘dimnames’.
+
+_E_x_a_m_p_l_e_s:
+
+     dim(as.array(letters))
+     array(1:3, c(2,4)) # recycle 1:3 "2 2/3 times"
+     #     [,1] [,2] [,3] [,4]
+     #[1,]    1    3    2    1
+     #[2,]    2    1    3    2
+     
+

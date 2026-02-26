@@ -1,0 +1,149 @@
+Help on topic ‘Logic’ was found in the following packages:
+
+  Package               Library
+  methods               /usr/lib/R/library
+  base                  /usr/lib/R/library
+
+
+Using the first match ...
+S4groupGeneric             package:methods             R Documentation
+
+_S_4 _G_r_o_u_p _G_e_n_e_r_i_c _F_u_n_c_t_i_o_n_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Methods can be defined for _group generic functions_.  Each group
+     generic function has a number of _member_ generic functions
+     associated with it.
+
+     Methods defined for a group generic function cause the same method
+     to be defined for each member of the group, but a method
+     explicitly defined for a member of the group takes precedence over
+     a method defined, with the same signature, for the group generic.
+
+     The functions shown in this documentation page all reside in the
+     ‘methods’ package, but the mechanism is available to any
+     programmer, by calling ‘setGroupGeneric’ (provided package
+     ‘methods’ is attached).
+
+_U_s_a_g_e:
+
+     ## S4 group generics:
+     Arith(e1, e2)
+     Compare(e1, e2)
+     Ops(e1, e2)
+     matrixOps(x, y)
+     Logic(e1, e2)
+     Math(x)
+     Math2(x, digits)
+     Summary(x, ..., na.rm = FALSE)
+     Complex(z)
+     
+_A_r_g_u_m_e_n_t_s:
+
+x, y, z, e1, e2: objects.
+
+  digits: number of digits to be used in ‘round’ or ‘signif’.
+
+     ...: further arguments passed to or from methods.
+
+   na.rm: logical: should missing values be removed?
+
+_D_e_t_a_i_l_s:
+
+     Methods can be defined for the group generic functions by calls to
+     ‘setMethod’ in the usual way.  Note that the group generic
+     functions should never be called directly - a suitable error
+     message will result if they are.  When metadata for a group
+     generic is loaded, the methods defined become methods for the
+     members of the group, but only if no method has been specified
+     directly for the member function for the same signature.  The
+     effect is that group generic definitions are selected before
+     inherited methods but after directly specified methods.  For more
+     on method selection, see ‘Methods_Details’.
+
+     There are also S3 groups ‘Math’, ‘Ops’, ‘Summary’, ‘Complex’ and
+     ‘matrixOps’, see ‘?S3groupGeneric’, with no corresponding R
+     objects, but these are irrelevant for S4 group generic functions.
+
+     The members of the group defined by a particular generic can be
+     obtained by calling ‘getGroupMembers’. For the group generic
+     functions currently defined in this package the members are as
+     follows:
+
+     ‘Arith’ ‘"+"’, ‘"-"’, ‘"*"’, ‘"^"’, ‘"%%"’, ‘"%/%"’, ‘"/"’
+
+     ‘Compare’ ‘"=="’, ‘">"’, ‘"<"’, ‘"!="’, ‘"<="’, ‘">="’
+
+     ‘Logic’ ‘"&"’, ‘"|"’.
+
+     ‘Ops’ ‘"Arith"’, ‘"Compare"’, ‘"Logic"’
+
+     ‘Math’ ‘"abs"’, ‘"sign"’, ‘"sqrt"’, ‘"ceiling"’, ‘"floor"’,
+          ‘"trunc"’, ‘"cummax"’, ‘"cummin"’, ‘"cumprod"’, ‘"cumsum"’,
+          ‘"log"’, ‘"log10"’, ‘"log2"’, ‘"log1p"’, ‘"acos"’, ‘"acosh"’,
+          ‘"asin"’, ‘"asinh"’, ‘"atan"’, ‘"atanh"’, ‘"exp"’, ‘"expm1"’,
+          ‘"cos"’, ‘"cosh"’, ‘"cospi"’, ‘"sin"’, ‘"sinh"’, ‘"sinpi"’,
+          ‘"tan"’, ‘"tanh"’, ‘"tanpi"’, ‘"gamma"’, ‘"lgamma"’,
+          ‘"digamma"’, ‘"trigamma"’
+
+     ‘Math2’ ‘"round"’, ‘"signif"’
+
+     ‘Summary’ ‘"max"’, ‘"min"’, ‘"range"’, ‘"prod"’, ‘"sum"’, ‘"any"’,
+          ‘"all"’
+
+     ‘Complex’ ‘"Arg"’, ‘"Conj"’, ‘"Im"’, ‘"Mod"’, ‘"Re"’
+
+     ‘matrixOps’ ‘"%*%"’
+
+     Note that ‘Ops’ merely consists of three sub groups.
+
+     All the functions in these groups (other than the group generics
+     themselves) are basic functions in R.  They are not by default S4
+     generic functions, and many of them are defined as primitives.
+     However, you can still define formal methods for them, both
+     individually and via the group generics.  It all works more or
+     less as you might expect, admittedly via a bit of trickery in the
+     background.  See Methods_Details for details.
+
+     Note that two members of the ‘Math’ group, ‘log’ and ‘trunc’, have
+     ... as an extra formal argument.  Since methods for ‘Math’ will
+     have only one formal argument, you must set a specific method for
+     these functions in order to call them with the extra argument(s).
+
+     For further details about group generic functions see section 10.5
+     of the second reference.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Chambers, John M. (2016) _Extending R_, Chapman & Hall. (Chapters
+     9 and 10.)
+
+     Chambers, John M. (2008) _Software for Data Analysis: Programming
+     with R_ Springer. (Section 10.5)
+
+_S_e_e _A_l_s_o:
+
+     The function ‘callGeneric’ is nearly always relevant when writing
+     a method for a group generic.  See the examples below and in
+     section 10.5 of _Software for Data Analysis_.
+
+     See S3groupGeneric for S3 group generics.
+
+_E_x_a_m_p_l_e_s:
+
+     setClass("testComplex", slots = c(zz = "complex"))
+     ## method for whole group "Complex"
+     getGroupMembers("Complex") # "Arg"  "Conj" "Im"   "Mod"  "Re"  
+     setMethod("Complex", "testComplex",
+               function(z) c("groupMethod", callGeneric(z@zz)))
+     ## exception for Arg() :
+     setMethod("Arg", "testComplex",
+               function(z) c("ArgMethod", Arg(z@zz)))
+     z1 <- 1+2i
+     z2 <- new("testComplex", zz = z1)
+     stopifnot(identical(Mod(z2), c("groupMethod", Mod(z1))))
+     stopifnot(identical(Arg(z2), c("ArgMethod", Arg(z1))))
+     selectMethod("Re", signature = "testComplex") # shows Generic: .. "Re" & .."Complex"
+     
+

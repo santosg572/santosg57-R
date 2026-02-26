@@ -1,0 +1,115 @@
+Control                  package:base                  R Documentation
+
+_C_o_n_t_r_o_l _F_l_o_w
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     These are the basic control-flow constructs of the R language.
+     They function in much the same way as control statements in any
+     Algol-like language.  They are all reserved words.
+
+_U_s_a_g_e:
+
+     if(cond) expr
+     if(cond) cons.expr  else  alt.expr
+     
+     for(var in seq) expr
+     while(cond) expr
+     repeat expr
+     break
+     next
+     
+     x %||% y
+     
+_A_r_g_u_m_e_n_t_s:
+
+    cond: A length-one logical vector that is not ‘NA’.  Other types
+          are coerced to logical if possible, ignoring any class.
+          (Conditions of length greater than one are an error.)
+
+     var: A syntactical name for a variable.
+
+     seq: An expression evaluating to a vector (including a list and an
+          expression) or to a pairlist or ‘NULL’.  A factor value will
+          be coerced to a character vector.  This can be a long vector.
+
+expr, cons.expr, alt.expr, x, y: An _expression_ in a formal sense.
+          This is either a simple expression or a so-called _compound
+          expression_, usually of the form ‘{ expr1 ; expr2 }’.
+
+_D_e_t_a_i_l_s:
+
+     ‘break’ breaks out of a ‘for’, ‘while’ or ‘repeat’ loop; control
+     is transferred to the first statement outside the inner-most loop.
+     ‘next’ halts the processing of the current iteration and advances
+     the looping index.  Both ‘break’ and ‘next’ apply only to the
+     innermost of nested loops.
+
+     Note that it is a common mistake to forget to put braces (‘{ ..
+     }’) around your statements, e.g., after ‘if(..)’ or ‘for(....)’.
+     In particular, you should not have a newline between ‘}’ and
+     ‘else’ to avoid a syntax error in entering a ‘if ... else’
+     construct at the keyboard or via ‘source’.  For that reason, one
+     (somewhat extreme) attitude of defensive programming is to always
+     use braces, e.g., for ‘if’ clauses.
+
+     The ‘seq’ in a ‘for’ loop is evaluated at the start of the loop;
+     changing it subsequently does not affect the loop.  If ‘seq’ has
+     length zero the body of the loop is skipped. Otherwise the
+     variable ‘var’ is assigned in turn the value of each element of
+     ‘seq’. You can assign to ‘var’ within the body of the loop, but
+     this will not affect the next iteration.  When the loop
+     terminates, ‘var’ remains as a variable containing its latest
+     value.
+
+     The null coalescing operator ‘%||%’ is a simple 1-line function:
+     ‘x %||% y’ is an idiomatic way to call
+
+         if (is.null(x)) y else x
+                                  # or equivalently, of course,
+         if(!is.null(x)) x else y 
+     
+     Inspired by Ruby, it was first proposed by Hadley Wickham.
+
+_V_a_l_u_e:
+
+     ‘if’ returns the value of the expression evaluated, or ‘NULL’
+     invisibly if none was (which may happen if there is no ‘else’).
+
+     ‘for’, ‘while’ and ‘repeat’ return ‘NULL’ invisibly.  ‘for’ sets
+     ‘var’ to the last used element of ‘seq’, or to ‘NULL’ if it was of
+     length zero.
+
+     ‘break’ and ‘next’ do not return a value as they transfer control
+     within the loop.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+_S_e_e _A_l_s_o:
+
+     ‘Syntax’ for the basic R syntax and operators, ‘Paren’ for
+     parentheses and braces.
+
+     ‘ifelse’, ‘switch’ for other ways to control flow.
+
+_E_x_a_m_p_l_e_s:
+
+     for(i in 1:5) print(1:i)
+     for(n in c(2,5,10,20,50)) {
+        x <- stats::rnorm(n)
+        cat(n, ": ", sum(x^2), "\n", sep = "")
+     }
+     f <- factor(sample(letters[1:5], 10, replace = TRUE))
+     for(i in unique(f)) print(i)
+     
+     res <- {}
+     res %||% "alternative result"
+     x <- head(x) %||% stop("parsed, but *not* evaluated..")
+     
+     res <- if(sum(x) > 7.5) mean(x) # may be NULL
+     res %||% "sum(x) <= 7.5"
+     
+

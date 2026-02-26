@@ -1,0 +1,135 @@
+attach                  package:base                   R Documentation
+
+_A_t_t_a_c_h _S_e_t _o_f _R _O_b_j_e_c_t_s _t_o _S_e_a_r_c_h _P_a_t_h
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     The database is attached to the R search path.  This means that
+     the database is searched by R when evaluating a variable, so
+     objects in the database can be accessed by simply giving their
+     names.
+
+_U_s_a_g_e:
+
+     attach(what, pos = 2L, name = deparse1(substitute(what), backtick=FALSE),
+            warn.conflicts = TRUE)
+     
+_A_r_g_u_m_e_n_t_s:
+
+    what: ‘database’.  This can be a ‘data.frame’ or a ‘list’ or a R
+          data file created with ‘save’ or ‘NULL’ or an environment.
+          See also ‘Details’.
+
+     pos: integer specifying position in ‘search()’ where to attach.
+
+    name: name to use for the attached database. Names starting with
+          ‘package:’ are reserved for ‘library’.
+
+warn.conflicts: logical.  If ‘TRUE’, ‘message()’s are printed about
+          ‘conflicts’ from attaching the database, unless that database
+          contains an object ‘.conflicts.OK’.  A conflict is a function
+          masking a function, or a non-function masking a non-function.
+
+          NB: Even though the name is ‘warn.conflicts’ for historical
+          reasons, the messages about conflicts are _not_ ‘warning()’s
+          but ‘message()’s.
+
+_D_e_t_a_i_l_s:
+
+     When evaluating a variable or function name R searches for that
+     name in the databases listed by ‘search’.  The first name of the
+     appropriate type is used.
+
+     By attaching a data frame (or list) to the search path it is
+     possible to refer to the variables in the data frame by their
+     names alone, rather than as components of the data frame (e.g., in
+     the example below, ‘height’ rather than ‘women$height’).
+
+     By default the database is attached in position 2 in the search
+     path, immediately after the user's workspace and before all
+     previously attached packages and previously attached databases.
+     This can be altered to attach later in the search path with the
+     ‘pos’ option, but you cannot attach at ‘pos = 1’.
+
+     The database is not actually attached.  Rather, a new environment
+     is created on the search path and the elements of a list
+     (including columns of a data frame) or objects in a save file or
+     an environment are _copied_ into the new environment.  If you use
+     ‘<<-’ or ‘assign’ to assign to an attached database, you only
+     alter the attached copy, not the original object.  (Normal
+     assignment will place a modified version in the user's workspace:
+     see the examples.)  For this reason ‘attach’ can lead to
+     confusion.
+
+     One useful ‘trick’ is to use ‘what = NULL’ (or equivalently a
+     length-zero list) to create a new environment on the search path
+     into which objects can be assigned by ‘assign’ or ‘load’ or
+     ‘sys.source’.
+
+     Names starting ‘"package:"’ are reserved for ‘library’ and should
+     not be used by end users.  Attached files are by default given the
+     name ‘file:<what>’.  The ‘name’ argument given for the attached
+     environment will be used by ‘search’ and can be used as the
+     argument to ‘as.environment’.
+
+_V_a_l_u_e:
+
+     The ‘environment’ is returned invisibly with a ‘"name"’ attribute.
+
+_G_o_o_d _p_r_a_c_t_i_c_e:
+
+     ‘attach’ has the side effect of altering the search path and this
+     can easily lead to the wrong object of a particular name being
+     found.  People do often forget to ‘detach’ databases.
+
+     In interactive use, ‘with’ is usually preferable to the use of
+     ‘attach’/‘detach’, unless ‘what’ is a ‘save()’-produced file in
+     which case ‘attach()’ is a (safety) wrapper for ‘load()’.
+
+     In programming, functions should not change the search path unless
+     that is their purpose.  Often ‘with’ can be used within a
+     function. If not, good practice is to
+
+        • Always use a distinctive ‘name’ argument, and
+
+        • To immediately follow the ‘attach’ call by an ‘on.exit’ call
+          to ‘detach’ using the distinctive name.
+
+     This ensures that the search path is left unchanged even if the
+     function is interrupted or if code after the ‘attach’ call changes
+     the search path.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+_S_e_e _A_l_s_o:
+
+     ‘library’, ‘detach’, ‘search’, ‘objects’, ‘environment’, ‘with’.
+
+_E_x_a_m_p_l_e_s:
+
+     require(utils)
+     
+     summary(women$height)   # refers to variable 'height' in the data frame
+     attach(women)
+     summary(height)         # The same variable now available by name
+     height <- height*2.54   # Don't do this. It creates a new variable
+                             # in the user's workspace
+     find("height")
+     summary(height)         # The new variable in the workspace
+     rm(height)
+     summary(height)         # The original variable.
+     height <<- height*25.4  # Change the copy in the attached environment
+     find("height")
+     summary(height)         # The changed copy
+     detach("women")
+     summary(women$height)   # unchanged
+     
+     ## Not run:
+     ## create an environment on the search path and populate it
+     sys.source("myfuns.R", envir = attach(NULL, name = "myfuns"))
+     ## End(Not run)
+     
+

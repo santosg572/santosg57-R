@@ -1,0 +1,205 @@
+Arithmetic                package:base                 R Documentation
+
+Arithmetic Operators
+
+Description:
+
+     These unary and binary operators perform arithmetic on numeric or
+     complex vectors (or objects which can be coerced to them).
+
+Usage:
+
+     + x
+     - x
+     x + y
+     x - y
+     x * y
+     x / y
+     x ^ y
+     x %% y
+     x %/% y
+     
+Arguments:
+
+    x, y: numeric or complex vectors or objects which can be coerced to
+          such, or other objects for which methods have been written.
+
+Details:
+
+     The unary and binary arithmetic operators are generic functions:
+     methods can be written for them individually or via the ‘Ops’
+     group generic function.  (See ‘Ops’ for how dispatch is computed.)
+
+     If applied to arrays the result will be an array if this is
+     sensible (for example it will not if the recycling rule has been
+     invoked).
+
+     Logical vectors will be coerced to integer or numeric vectors,
+     ‘FALSE’ having value zero and ‘TRUE’ having value one.
+
+     ‘1 ^ y’ and ‘y ^ 0’ are ‘1’, _always_.  ‘x ^ y’ should also give
+     the proper limit result when either (numeric) argument is infinite
+     (one of ‘Inf’ or ‘-Inf’).
+
+     Objects such as arrays or time-series can be operated on this way
+     provided they are conformable.
+
+     For double arguments, ‘%%’ can be subject to catastrophic loss of
+     accuracy if ‘x’ is much larger than ‘y’, and a warning is given if
+     this is detected.
+
+     ‘%%’ and ‘x %/% y’ can be used for non-integer ‘y’, e.g. ‘1 %/%
+     0.2’, but the results are subject to representation error and so
+     may be platform-dependent.  Mathematically, the answer to ‘1 %/%
+     0.2’ should be ‘5’, but because the IEC 60559 representation of
+     ‘0.2’ is a binary fraction slightly larger than ‘0.2’ most
+     platforms give ‘4’.
+
+     Users are sometimes surprised by the value returned, for example
+     why ‘(-8)^(1/3)’ is ‘NaN’.  For double inputs, R makes use of IEC
+     60559 arithmetic on all platforms, together with the C system
+     function ‘pow’ for the ‘^’ operator.  The relevant standards
+     define the result in many corner cases.  In particular, the result
+     in the example above is mandated by the C99 standard.  On many
+     Unix-alike systems the command ‘man pow’ gives details of the
+     values in a large number of corner cases.
+
+     Arithmetic on type double in R is supposed to be done in ‘round to
+     nearest, ties to even’ mode, but this does depend on the compiler
+     and FPU being set up correctly.
+
+Value:
+
+     Unary ‘+’ and unary ‘-’ return a numeric or complex vector.  All
+     attributes (including class) are preserved if there is no
+     coercion: logical ‘x’ is coerced to integer and names, dims and
+     dimnames are preserved.
+
+     The binary operators return vectors containing the result of the
+     element by element operations.  If involving a zero-length vector
+     the result has length zero.  Otherwise, the elements of shorter
+     vectors are recycled as necessary (with a ‘warning’ when they are
+     recycled only _fractionally_).  The operators are ‘+’ for
+     addition, ‘-’ for subtraction, ‘*’ for multiplication, ‘/’ for
+     division and ‘^’ for exponentiation.
+
+     ‘%%’ indicates ‘x mod y’ (“x modulo y”), i.e., computes the
+     ‘remainder’ ‘r <- x %% y’, and ‘%/%’ indicates integer division,
+     where R uses “floored” integer division, i.e., ‘q <- x %/% y :=
+     floor(x/y)’, as promoted by Donald Knuth, see the Wikipedia page
+     on ‘Modulo operation’, and hence ‘sign(r) == sign(y)’.  It is
+     guaranteed that
+
+     ‘ x == (x %% y) + y * (x %/% y) ’ (up to rounding error)
+
+     unless ‘y == 0’ where the result of ‘%%’ is ‘NA_integer_’ or ‘NaN’
+     (depending on the ‘typeof’ of the arguments) or for some
+     non-finite arguments, e.g., when the RHS of the identity above
+     amounts to ‘Inf - Inf’.
+
+     If either argument is complex the result will be complex,
+     otherwise if one or both arguments are numeric, the result will be
+     numeric.  If both arguments are of type integer, the type of the
+     result of ‘/’ and ‘^’ is numeric and for the other operators it is
+     integer (with overflow, which occurs at +/- (2^31 - 1), returned
+     as ‘NA_integer_’ with a warning).
+
+     The rules for determining the attributes of the result are rather
+     complicated.  Most attributes are taken from the longer argument.
+     Names will be copied from the first if it is the same length as
+     the answer, otherwise from the second if that is.  If the
+     arguments are the same length, attributes will be copied from
+     both, with those of the first argument taking precedence when the
+     same attribute is present in both arguments. For time series,
+     these operations are allowed only if the series are compatible,
+     when the class and ‘tsp’ attribute of whichever is a time series
+     (the same, if both are) are used.  For arrays (and an array
+     result) the dimensions and dimnames are taken from first argument
+     if it is an array, otherwise the second.
+
+S4 methods:
+
+     These operators are members of the S4 ‘Arith’ group generic, and
+     so methods can be written for them individually as well as for the
+     group generic (or the ‘Ops’ group generic), with arguments ‘c(e1,
+     e2)’ (with ‘e2’ missing for a unary operator).
+
+Implementation limits:
+
+     R is dependent on OS services (and they on FPUs) for
+     floating-point arithmetic.  On all current R platforms IEC 60559
+     (also known as IEEE 754) arithmetic is used, but some things in
+     those standards are optional.  In particular, the support for
+     _denormal_ aka _subnormal_ numbers (those outside the range given
+     by ‘.Machine’) may differ between platforms and even between
+     calculations on a single platform.
+
+     Another potential issue is signed zeroes: on IEC 60559 platforms
+     there are two zeroes with internal representations differing by
+     sign.  Where possible R treats them as the same, but for example
+     direct output from C code often does not do so and may output
+     ‘-0.0’ (and on Windows whether it does so or not depends on the
+     version of Windows).  One place in R where the difference might be
+     seen is in division by zero: ‘1/x’ is ‘Inf’ or ‘-Inf’ depending on
+     the sign of zero ‘x’.  Another place is ‘identical(0, -0, num.eq =
+     FALSE)’.
+
+Note:
+
+     All logical operations involving a zero-length vector have a
+     zero-length result.
+
+     The binary operators are sometimes called as functions as e.g.
+     ‘`&`(x, y)’: see the description of how argument-matching is done
+     in ‘Ops’.
+
+     ‘**’ is translated in the parser to ‘^’, but this was undocumented
+     for many years.  It appears as an index entry in Becker et al.
+     (1988), pointing to the help for ‘Deprecated’ but is not actually
+     mentioned on that page.  Even though it had been deprecated in S
+     for 20 years, it was still accepted in R in 2008.
+
+References:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+     D. Goldberg (1991).  What Every Computer Scientist Should Know
+     about Floating-Point Arithmetic.  _ACM Computing Surveys_,
+     *23*(1), 5-48.  doi:10.1145/103162.103163
+     <https://doi.org/10.1145/103162.103163>.
+
+     Also available at
+     <https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>.
+
+     For the IEC 60559 (aka IEEE 754) standard:
+     <https://www.iso.org/standard/57469.html> and
+     <https://en.wikipedia.org/wiki/IEEE_754>.
+
+     On the integer division and remainder (modulo) computations, ‘%%’
+     and ‘%/%’: <https://en.wikipedia.org/wiki/Modulo_operation>, and
+     Donald Knuth (1972) _The Art of Computer Programming_, Vol.1.
+
+See Also:
+
+     ‘sqrt’ for miscellaneous and ‘Special’ for special mathematical
+     functions.
+
+     ‘Syntax’ for operator precedence.
+
+     ‘%*%’ for matrix multiplication.
+
+Examples:
+
+     x <- -1:12
+     x + 1
+     2 * x + 3
+     x %%  3 # is periodic  2 0  1  2 0  1 ...
+     x %% -3 #  (ditto)    -1 0 -2 -1 0 -2 ...
+     x %/% 5
+     x %% Inf # now is defined by limit (gave NaN in earlier versions of R)
+     
+     ## Illustrating PR#18677, see above
+     1 %/% print(0.2, digits=19)
+     
+

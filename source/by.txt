@@ -1,0 +1,69 @@
+by                    package:base                     R Documentation
+
+_A_p_p_l_y _a _F_u_n_c_t_i_o_n _t_o _a _D_a_t_a _F_r_a_m_e _S_p_l_i_t _b_y _F_a_c_t_o_r_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Function ‘by’ is an object-oriented wrapper for ‘tapply’ applied
+     to data frames.
+
+_U_s_a_g_e:
+
+     by(data, INDICES, FUN, ..., simplify = TRUE)
+     
+_A_r_g_u_m_e_n_t_s:
+
+    data: an R object, normally a data frame, possibly a matrix.
+
+ INDICES: a factor or a list of factors, each of length ‘nrow(data)’.
+          For the data frame method, ‘INDICES’ can also be a formula as
+          in the ‘f’ argument of the ‘split’ method for data frames.
+
+     FUN: a ‘function’ to be applied to (usually data-frame) subsets of
+          ‘data’.
+
+     ...: further arguments to ‘FUN’.
+
+simplify: logical: see ‘tapply’.
+
+_D_e_t_a_i_l_s:
+
+     A data frame is split (calling ‘split()’ by row into data frames
+     subsetted by the values of one or more factors, and function ‘FUN’
+     is applied to each subset in turn.
+
+     For the default method, an object with dimensions (e.g., a matrix)
+     is coerced to a data frame and the data frame method applied.
+     Other objects are also coerced to a data frame, but ‘FUN’ is
+     applied separately to (subsets of) each column of the data frame.
+
+_V_a_l_u_e:
+
+     An object of class ‘"by"’, giving the results for each subset.
+     This is always a list if ‘simplify’ is false, otherwise a list or
+     array (see ‘tapply’).
+
+_S_e_e _A_l_s_o:
+
+     ‘tapply’, ‘simplify2array’.  ‘array2DF’ to convert result to a
+     data frame. ‘ave’ also applies a function block-wise.
+
+_E_x_a_m_p_l_e_s:
+
+     require(stats)
+     by(warpbreaks[, 1:2], warpbreaks[,"tension"], summary)
+     by(warpbreaks[, 1],   warpbreaks[, -1],       summary)
+     by(warpbreaks, warpbreaks[,"tension"],
+        function(x) lm(breaks ~ wool, data = x))
+     
+     ## now suppose we want to extract the coefficients by group
+     tmp1 <- with(warpbreaks,
+                 by(warpbreaks, tension,
+                    function(x) lm(breaks ~ wool, data = x)))
+     sapply(tmp1, coef)
+     
+     ## another way
+     by(warpbreaks, ~ tension,
+        with, coef(lm(breaks ~ wool))) |> array2DF(simplify = TRUE)
+     
+

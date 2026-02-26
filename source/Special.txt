@@ -1,0 +1,195 @@
+Special                  package:base                  R Documentation
+
+_S_p_e_c_i_a_l _F_u_n_c_t_i_o_n_s _o_f _M_a_t_h_e_m_a_t_i_c_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Special mathematical functions related to the beta and gamma
+     functions.
+
+_U_s_a_g_e:
+
+     beta(a, b)
+     lbeta(a, b)
+     
+     gamma(x)
+     lgamma(x)
+     psigamma(x, deriv = 0)
+     digamma(x)
+     trigamma(x)
+     
+     choose(n, k)
+     lchoose(n, k)
+     factorial(x)
+     lfactorial(x)
+     
+_A_r_g_u_m_e_n_t_s:
+
+    a, b: non-negative numeric vectors.
+
+    x, n: numeric vectors.
+
+k, deriv: integer vectors.
+
+_D_e_t_a_i_l_s:
+
+     The functions ‘beta’ and ‘lbeta’ return the beta function and the
+     natural logarithm of the beta function,
+
+                    B(a,b) = Gamma(a)Gamma(b)/Gamma(a+b).               
+     
+     The formal definition is
+
+                     integral_0^1 t^(a-1) (1-t)^(b-1) dt                
+     
+     (Abramowitz and Stegun section 6.2.1, page 258).  Note that it is
+     only defined in R for non-negative ‘a’ and ‘b’, and is infinite if
+     either is zero.
+
+     The functions ‘gamma’ and ‘lgamma’ return the gamma function
+     Gamma(x) and the natural logarithm of _the absolute value of_ the
+     gamma function.  The gamma function is defined by (Abramowitz and
+     Stegun section 6.1.1, page 255)
+
+                Gamma(x) = integral_0^Inf t^(x-1) exp(-t) dt            
+     
+     for all x > 0, from which the recursions Gamma(x+1) = xGamma(x)
+     and then Gamma(x+n) = (x+n-1)(x+n-2)\cdots x Gamma(x) for all
+     non-negative integers n.  Solving for Gamma(x) and analytic
+     continuation leads to the expression for non-integer negative real
+     numbers,
+
+     Gamma(x) = Gamma(x + n)/((x + n -1) ... (x + 1)x), n in N, -n < x < 0,
+     
+     see Abramowitz and Stegun (6.1.16 or 6.1.22, page 256).  The gamma
+     function is not defined for zero and negative integers (when ‘NaN’
+     is returned).  There will be a warning on possible loss of
+     precision for values which are too close (within about 1e-8) to a
+     negative integer less than ‘-10’.
+
+     ‘factorial(x)’ (x! for non-negative integer ‘x’) is defined to be
+     ‘gamma(x+1)’ and ‘lfactorial’ to be ‘lgamma(x+1)’.
+
+     The functions ‘digamma’ and ‘trigamma’ return the first and second
+     derivatives of the logarithm of the gamma function.  ‘psigamma(x,
+     deriv)’ (‘deriv >= 0’) computes the ‘deriv’-th derivative of
+     psi(x).
+
+       digamma(x) = psi(x) = d/dx{ln Gamma(x)} = Gamma'(x) / Gamma(x)   
+     
+     psi and its derivatives, the ‘psigamma()’ functions, are often
+     called the ‘polygamma’ functions, e.g. in Abramowitz and Stegun
+     (section 6.4.1, page 260); and higher derivatives (‘deriv = 2:4’)
+     have occasionally been called ‘tetragamma’, ‘pentagamma’, and
+     ‘hexagamma’.
+
+     The functions ‘choose’ and ‘lchoose’ return binomial coefficients
+     and the logarithms of their absolute values.  Note that ‘choose(n,
+     k)’ is defined for all real numbers n and integer k.  For k >= 1
+     it is defined as n(n-1)...(n-k+1) / k!, as 1 for k = 0 and as 0
+     for negative k.  Non-integer values of ‘k’ are rounded to an
+     integer, with a warning.
+
+     ‘choose(*, k)’ uses direct arithmetic (instead of ‘[l]gamma’
+     calls) for small ‘k’, for speed and accuracy reasons.  Note the
+     function ‘combn’ (package ‘utils’) for enumeration of all possible
+     combinations.
+
+     The ‘gamma’, ‘lgamma’, ‘digamma’ and ‘trigamma’ functions are
+     internal generic primitive functions: methods can be defined for
+     them individually or via the ‘Math’ group generic.
+
+_S_o_u_r_c_e:
+
+     ‘gamma’, ‘lgamma’, ‘beta’ and ‘lbeta’ are based on C translations
+     of Fortran subroutines by W. Fullerton of Los Alamos Scientific
+     Laboratory (now available as part of SLATEC).
+
+     ‘digamma’, ‘trigamma’ and ‘psigamma’ for ‘x >= 0’ are based on
+
+     Amos, D. E. (1983). A portable Fortran subroutine for derivatives
+     of the psi function, Algorithm 610, _ACM Transactions on
+     Mathematical Software_ *9(4)*, 494-502.
+
+     For, ‘x < 0’ and ‘deriv <= 5’, the reflection formula (6.4.7) of
+     Abramowitz and Stegun is used.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole. (For ‘gamma’ and ‘lgamma’.)
+
+     Abramowitz, M. and Stegun, I. A. (1972) _Handbook of Mathematical
+     Functions_. New York: Dover.
+     <https://en.wikipedia.org/wiki/Abramowitz_and_Stegun> provides
+     links to the full text which is in public domain.
+     Chapter 6: Gamma and Related Functions.
+
+_S_e_e _A_l_s_o:
+
+     ‘Arithmetic’ for simple, ‘sqrt’ for miscellaneous mathematical
+     functions and ‘Bessel’ for the real Bessel functions.
+
+     For the incomplete gamma function see ‘pgamma’.
+
+_E_x_a_m_p_l_e_s:
+
+     require(graphics)
+     
+     choose(5, 2)
+     for (n in 0:10) print(choose(n, k = 0:n))
+     
+     factorial(100)
+     lfactorial(10000)
+     
+     ## gamma has 1st order poles at 0, -1, -2, ...
+     ## this will generate loss of precision warnings, so turn off
+     op <- options("warn")
+     options(warn = -1)
+     x <- sort(c(seq(-3, 4, length.out = 201), outer(0:-3, (-1:1)*1e-6, `+`)))
+     plot(x, gamma(x), ylim = c(-20,20), col = "red", type = "l", lwd = 2,
+          main = expression(Gamma(x)))
+     abline(h = 0, v = -3:0, lty = 3, col = "midnightblue")
+     options(op)
+     
+     x <- seq(0.1, 4, length.out = 201); dx <- diff(x)[1]
+     par(mfrow = c(2, 3))
+     for (ch in c("", "l","di","tri","tetra","penta")) {
+       is.deriv <- nchar(ch) >= 2
+       nm <- paste0(ch, "gamma")
+       if (is.deriv) {
+         dy <- diff(y) / dx # finite difference
+         der <- which(ch == c("di","tri","tetra","penta")) - 1
+         nm2 <- paste0("psigamma(*, deriv = ", der,")")
+         nm  <- if(der >= 2) nm2 else paste(nm, nm2, sep = " ==\n")
+         y <- psigamma(x, deriv = der)
+       } else {
+         y <- get(nm)(x)
+       }
+       plot(x, y, type = "l", main = nm, col = "red")
+       abline(h = 0, col = "lightgray")
+       if (is.deriv) lines(x[-1], dy, col = "blue", lty = 2)
+     }
+     par(mfrow = c(1, 1))
+     
+     ## "Extended" Pascal triangle:
+     fN <- function(n) formatC(n, width=2)
+     for (n in -4:10) {
+         cat(fN(n),":", fN(choose(n, k = -2:max(3, n+2))))
+         cat("\n")
+     }
+     
+     ## R code version of choose()  [simplistic; warning for k < 0]:
+     mychoose <- function(r, k)
+         ifelse(k <= 0, (k == 0),
+                sapply(k, function(k) prod(r:(r-k+1))) / factorial(k))
+     k <- -1:6
+     cbind(k = k, choose(1/2, k), mychoose(1/2, k))
+     
+     ## Binomial theorem for n = 1/2 ;
+     ## sqrt(1+x) = (1+x)^(1/2) = sum_{k=0}^Inf  choose(1/2, k) * x^k :
+     k <- 0:10 # 10 is sufficient for ~ 9 digit precision:
+     sqrt(1.25)
+     sum(choose(1/2, k)* .25^k)
+     
+
