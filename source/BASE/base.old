@@ -423,8 +423,7 @@ Information on package ‘base’
 
 * **getDLLRegisteredRoutines** -   Reflectance Information for C/Fortran routines in a DLL
 
-* **getHook** -                   Functions to Get and Set Hooks for Load, Attach, Detach and 
-Unload
+* **getHook** -                   Functions to Get and Set Hooks for Load, Attach, Detach and Unload
 
 * **getLoadedDLLs** -             Get DLLs Loaded in Current Session
 
@@ -826,8 +825,7 @@ Unload
 
 * **topenv** -                    Top Level Environment
 
-* **trace** -                     Interactive Tracing and Debugging of Calls to a Function or 
-Method
+* **trace** -                     Interactive Tracing and Debugging of Calls to a Function or Method
 
 * **traceback** -                 Get and Print Call Stacks
 
@@ -853,8 +851,7 @@ Method
 
 * **unname** -                    Remove 'names' or 'dimnames'
 
-* **utf8ToInt** -                 Convert Integer Vectors to or from UTF-8-encoded Character 
-Vectors
+* **utf8ToInt** -                 Convert Integer Vectors to or from UTF-8-encoded Character Vectors
 
 * **validUTF8** -                 Check if a Character Vector is Validly Encoded
 

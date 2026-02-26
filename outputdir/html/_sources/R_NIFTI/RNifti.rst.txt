@@ -1,0 +1,24 @@
+RNifti: Fast R and C++ Access to NIfTI Images
+==============================================
+
+https://cran.r-project.org/web/packages/RNifti/index.html
+
+.. code:: R
+
+   library(help='RNifti')
+
+**Ejemplo** Lectura de datos:
+
+.. code:: R
+
+   library(RNifti)
+
+   img <- readNifti("sub-01_T1w.nii.gz")
+
+   print(typeof(img))
+   print(class(img))
+
+   print(dim(img))
+
+
+

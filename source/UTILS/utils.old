@@ -148,8 +148,7 @@ Priority:           base
 
 * **findCRANmirror** -          Find CRAN Mirror Preference
 
-* **findLineNum** -             Find the Location of a Line of Source Code, or Set a Breakpoint 
-There
+* **findLineNum** -             Find the Location of a Line of Source Code, or Set a Breakpoint There
 
 * **fix** -                     Fix an Object
 
